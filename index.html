@@ -1,0 +1,3048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Competenzee | Career Readiness Platform</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* =========================
+           GLOBAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #faf9f5;
+            color: #172033;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: "Space Grotesk", sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        .container {
+            width: min(1180px, 92%);
+            margin: auto;
+        }
+
+        .section {
+            padding: 90px 0;
+        }
+
+        .section-label {
+            display: inline-block;
+            padding: 7px 14px;
+            border-radius: 30px;
+            background: #e8f5f1;
+            color: #0f766e;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 42px;
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            max-width: 650px;
+            color: #64748b;
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(250, 249, 245, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #e8e7e2;
+        }
+
+        .nav-inner {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 25px;
+            font-weight: 700;
+            color: #172033;
+        }
+
+        .logo span {
+            color: #0f766e;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .nav-links a {
+            color: #475569;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #0f766e;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .login-btn {
+            border: none;
+            background: transparent;
+            font-weight: 600;
+            color: #172033;
+            padding: 10px 15px;
+        }
+
+        .primary-btn {
+            border: none;
+            background: #0f766e;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 9px;
+            font-weight: 700;
+            transition: 0.2s;
+        }
+
+        .primary-btn:hover {
+            background: #0b5f59;
+            transform: translateY(-1px);
+        }
+
+        .secondary-btn {
+            border: 1px solid #d5d8d6;
+            background: white;
+            color: #172033;
+            padding: 12px 20px;
+            border-radius: 9px;
+            font-weight: 700;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            border: none;
+            background: none;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            padding: 85px 0 70px;
+            background:
+                radial-gradient(circle at 85% 15%, #e8f5f1 0, transparent 30%),
+                #faf9f5;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            align-items: center;
+            gap: 70px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 13px;
+            border-radius: 30px;
+            background: white;
+            border: 1px solid #e2e4e2;
+            font-size: 13px;
+            font-weight: 700;
+            color: #0f766e;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(46px, 5vw, 70px);
+            line-height: 1.02;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: #0f766e;
+        }
+
+        .hero-text {
+            max-width: 600px;
+            color: #64748b;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .hero-note {
+            margin-top: 18px;
+            font-size: 13px;
+            color: #64748b;
+        }
+
+
+        /* =========================
+           DASHBOARD MOCKUP
+        ========================= */
+
+        .dashboard-wrapper {
+            position: relative;
+        }
+
+        .dashboard-card {
+            background: white;
+            border: 1px solid #e1e5e2;
+            border-radius: 24px;
+            padding: 22px;
+            box-shadow: 0 25px 70px rgba(23, 32, 51, 0.10);
+        }
+
+        .dashboard-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .dashboard-title {
+            font-weight: 700;
+        }
+
+        .dashboard-small {
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        .score-area {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .score-circle {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #0f766e 0deg 281deg,
+                #e7eeeb 281deg 360deg
+            );
+            display: grid;
+            place-items: center;
+            position: relative;
+        }
+
+        .score-circle::before {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .score-number {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .score-number strong {
+            display: block;
+            font-size: 28px;
+        }
+
+        .score-number small {
+            font-size: 11px;
+            color: #64748b;
+        }
+
+        .progress-list {
+            flex: 1;
+        }
+
+        .progress-item {
+            margin-bottom: 13px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-bottom: 6px;
+        }
+
+        .progress-bar {
+            height: 7px;
+            background: #edf0ef;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #0f766e;
+            border-radius: 20px;
+        }
+
+        .fill-85 {
+            width: 85%;
+        }
+
+        .fill-70 {
+            width: 70%;
+        }
+
+        .fill-62 {
+            width: 62%;
+        }
+
+        .mockup-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .mock-card {
+            padding: 15px;
+            border-radius: 14px;
+            background: #f7f9f8;
+            border: 1px solid #edf0ef;
+        }
+
+        .mock-card-icon {
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .mock-card strong {
+            display: block;
+            font-size: 13px;
+        }
+
+        .mock-card span {
+            font-size: 11px;
+            color: #64748b;
+        }
+
+
+        /* =========================
+           STATS
+        ========================= */
+
+        .stats {
+            padding: 25px 0;
+            border-top: 1px solid #e5e5e0;
+            border-bottom: 1px solid #e5e5e0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .stat {
+            text-align: center;
+            padding: 15px;
+            border-right: 1px solid #e5e5e0;
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat strong {
+            display: block;
+            font-family: "Space Grotesk";
+            font-size: 27px;
+            margin-bottom: 3px;
+        }
+
+        .stat span {
+            color: #64748b;
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           WHY COMPETENZEE
+        ========================= */
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .why-list {
+            display: grid;
+            gap: 18px;
+        }
+
+        .why-item {
+            display: flex;
+            gap: 16px;
+            padding: 18px;
+            background: white;
+            border: 1px solid #e6e8e6;
+            border-radius: 14px;
+        }
+
+        .why-icon {
+            min-width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: #e8f5f1;
+            display: grid;
+            place-items: center;
+            font-size: 20px;
+        }
+
+        .why-item h3 {
+            font-size: 17px;
+            margin-bottom: 3px;
+        }
+
+        .why-item p {
+            color: #64748b;
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           PRODUCTS
+        ========================= */
+
+        .products-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .products-header .section-subtitle {
+            margin: auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid #e1e5e2;
+            border-radius: 20px;
+            padding: 32px;
+        }
+
+        .product-card.featured {
+            border-top: 4px solid #0f766e;
+        }
+
+        .product-card.blue {
+            border-top: 4px solid #e8795b;
+        }
+
+        .product-icon {
+            width: 55px;
+            height: 55px;
+            display: grid;
+            place-items: center;
+            border-radius: 14px;
+            background: #e8f5f1;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .product-card.blue .product-icon {
+            background: #fff0eb;
+        }
+
+        .product-card h3 {
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+
+        .product-card > p {
+            color: #64748b;
+            margin-bottom: 22px;
+        }
+
+        .product-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: #f3f5f4;
+            padding: 7px 11px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           FEATURES
+        ========================= */
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            border: 1px solid #e5e8e6;
+            border-radius: 15px;
+            padding: 23px;
+            transition: 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(23, 32, 51, 0.07);
+        }
+
+        .feature-icon {
+            font-size: 25px;
+            margin-bottom: 13px;
+        }
+
+        .feature-card h3 {
+            font-size: 17px;
+            margin-bottom: 6px;
+        }
+
+        .feature-card p {
+            font-size: 13px;
+            color: #64748b;
+        }
+
+
+        /* =========================
+           TECHNICAL PRACTICE
+        ========================= */
+
+        .technical {
+            background: #172033;
+            color: white;
+        }
+
+        .technical .section-label {
+            background: rgba(255,255,255,0.1);
+            color: #b9e5de;
+        }
+
+        .technical .section-subtitle {
+            color: #b8c0ce;
+        }
+
+        .technical-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .technical-card {
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 15px;
+            background: rgba(255,255,255,0.04);
+        }
+
+        .technical-card span {
+            font-size: 25px;
+        }
+
+        .technical-card h3 {
+            margin: 12px 0 5px;
+            font-size: 17px;
+        }
+
+        .technical-card p {
+            font-size: 13px;
+            color: #aeb7c5;
+        }
+
+
+        /* =========================
+           ASSESSMENTS
+        ========================= */
+
+        .assessment-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 40px;
+        }
+
+        .assessment-card {
+            background: white;
+            border: 1px solid #e2e5e3;
+            padding: 28px;
+            border-radius: 17px;
+        }
+
+        .assessment-card .number {
+            color: #0f766e;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .assessment-card h3 {
+            margin: 12px 0 8px;
+            font-size: 22px;
+        }
+
+        .assessment-card p {
+            color: #64748b;
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           FLUENZEE
+        ========================= */
+
+        .fluenzee-box {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 50px;
+            align-items: center;
+            background: white;
+            border: 1px solid #e1e5e2;
+            border-radius: 25px;
+            padding: 45px;
+        }
+
+        .voice-illustration {
+            min-height: 290px;
+            border-radius: 20px;
+            background: #e8f5f1;
+            display: grid;
+            place-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mic {
+            width: 90px;
+            height: 120px;
+            border-radius: 50px;
+            background: #0f766e;
+            display: grid;
+            place-items: center;
+            color: white;
+            font-size: 38px;
+            z-index: 2;
+        }
+
+        .sound {
+            position: absolute;
+            border: 2px solid #0f766e;
+            border-radius: 50%;
+            opacity: 0.25;
+        }
+
+        .sound.one {
+            width: 160px;
+            height: 160px;
+        }
+
+        .sound.two {
+            width: 230px;
+            height: 230px;
+        }
+
+        .sound.three {
+            width: 310px;
+            height: 310px;
+        }
+
+        .fluenzee-content h2 {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .fluenzee-content > p {
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+
+        .fluency-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .fluency-card {
+            padding: 15px;
+            border-radius: 12px;
+            background: #f5f7f6;
+        }
+
+        .fluency-card strong {
+            display: block;
+            font-size: 14px;
+        }
+
+        .fluency-card span {
+            color: #64748b;
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           HOW IT WORKS
+        ========================= */
+
+        .how-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .how-header .section-subtitle {
+            margin: auto;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .step {
+            position: relative;
+            padding: 28px 22px;
+            background: white;
+            border: 1px solid #e4e7e5;
+            border-radius: 16px;
+        }
+
+        .step-number {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: #0f766e;
+            color: white;
+            font-weight: 700;
+            margin-bottom: 17px;
+        }
+
+        .step h3 {
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+
+        .step p {
+            color: #64748b;
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           AUDIENCE
+        ========================= */
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 40px;
+        }
+
+        .audience-card {
+            padding: 30px;
+            background: white;
+            border: 1px solid #e2e5e3;
+            border-radius: 18px;
+        }
+
+        .audience-card-icon {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .audience-card h3 {
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .audience-card p {
+            font-size: 13px;
+            color: #64748b;
+            margin-bottom: 18px;
+        }
+
+        .audience-card ul {
+            list-style: none;
+            display: grid;
+            gap: 7px;
+        }
+
+        .audience-card li {
+            font-size: 13px;
+        }
+
+        .audience-card li::before {
+            content: "✓";
+            color: #0f766e;
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+
+        /* =========================
+           PLANS
+        ========================= */
+
+        .plans {
+            background: #f1f5f3;
+        }
+
+        .plans-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .plans-header .section-subtitle {
+            margin: auto;
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .plan-card {
+            background: white;
+            border: 1px solid #e0e4e2;
+            border-radius: 18px;
+            padding: 30px;
+        }
+
+        .plan-card.featured-plan {
+            border: 2px solid #0f766e;
+        }
+
+        .plan-card h3 {
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .plan-card p {
+            color: #64748b;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .plan-card ul {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .plan-card li {
+            font-size: 13px;
+        }
+
+        .plan-card li::before {
+            content: "✓";
+            color: #0f766e;
+            margin-right: 8px;
+            font-weight: 700;
+        }
+
+        .full-btn {
+            width: 100%;
+        }
+
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            padding: 85px 0;
+        }
+
+        .cta-box {
+            background: #0f766e;
+            color: white;
+            border-radius: 25px;
+            padding: 55px;
+            text-align: center;
+        }
+
+        .cta-box h2 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .cta-box p {
+            max-width: 620px;
+            margin: auto auto 25px;
+            color: #d8f1ed;
+        }
+
+        .cta-box .primary-btn {
+            background: white;
+            color: #0f766e;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #172033;
+            color: white;
+            padding: 55px 0 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: #aeb7c5;
+            font-size: 13px;
+            margin-top: 12px;
+            max-width: 300px;
+        }
+
+        footer h4 {
+            margin-bottom: 15px;
+        }
+
+        footer ul {
+            list-style: none;
+            display: grid;
+            gap: 9px;
+        }
+
+        footer li,
+        footer a {
+            color: #aeb7c5;
+            font-size: 13px;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            color: #8993a4;
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           AUTH MODAL
+        ========================= */
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.65);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 3000;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .auth-box {
+            width: min(900px, 100%);
+            max-height: 92vh;
+            overflow: auto;
+            background: white;
+            border-radius: 22px;
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            position: relative;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+        }
+
+        .auth-info {
+            background: #172033;
+            color: white;
+            padding: 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .auth-info.signup-info {
+            background: #0f766e;
+        }
+
+        .auth-info .logo {
+            color: white;
+            margin-bottom: 45px;
+        }
+
+        .auth-info .logo span {
+            color: #8ddbd1;
+        }
+
+        .auth-info h2 {
+            font-size: 34px;
+            line-height: 1.15;
+            margin-bottom: 15px;
+        }
+
+        .auth-info p {
+            color: #c5ccd7;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .signup-info p {
+            color: #d8f1ed;
+        }
+
+        .auth-benefits {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+        }
+
+        .auth-benefits li {
+            font-size: 13px;
+            color: #dce2eb;
+        }
+
+        .signup-info .auth-benefits li {
+            color: white;
+        }
+
+        .auth-benefits li::before {
+            content: "✓";
+            color: #8ddbd1;
+            margin-right: 8px;
+            font-weight: 700;
+        }
+
+        .auth-form {
+            padding: 45px;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 18px;
+            top: 15px;
+            width: 35px;
+            height: 35px;
+            border: none;
+            border-radius: 50%;
+            background: #f1f3f2;
+            font-size: 20px;
+            color: #475569;
+            z-index: 5;
+        }
+
+        .auth-icon {
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            background: #e8f5f1;
+            border-radius: 12px;
+            font-size: 22px;
+            margin-bottom: 18px;
+        }
+
+        .auth-form h2 {
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+
+        .auth-subtitle {
+            color: #64748b;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 17px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 7px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 13px;
+            border: 1px solid #dce1df;
+            border-radius: 9px;
+            outline: none;
+            font-family: inherit;
+            font-size: 14px;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #0f766e;
+            box-shadow: 0 0 0 3px #e8f5f1;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .form-options a {
+            color: #0f766e;
+            font-weight: 600;
+        }
+
+        .auth-switch {
+            text-align: center;
+            margin-top: 20px;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        .auth-switch button {
+            border: none;
+            background: none;
+            color: #0f766e;
+            font-weight: 700;
+        }
+
+        .terms {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 950px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-grid,
+            .why-grid,
+            .fluenzee-box {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-grid,
+            .technical-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+
+        @media (max-width: 700px) {
+
+            .section {
+                padding: 65px 0;
+            }
+
+            .section-title {
+                font-size: 34px;
+            }
+
+            .hero {
+                padding-top: 60px;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat {
+                border-right: none;
+                border-bottom: 1px solid #e5e5e0;
+            }
+
+            .products-grid,
+            .assessment-grid,
+            .audience-grid,
+            .plans-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-grid,
+            .technical-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .fluenzee-box {
+                padding: 25px;
+            }
+
+            .auth-box {
+                grid-template-columns: 1fr;
+            }
+
+            .auth-info {
+                display: none;
+            }
+
+            .auth-form {
+                padding: 35px 25px;
+            }
+        }
+
+
+        @media (max-width: 500px) {
+
+            .nav-actions .login-btn {
+                display: none;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons button,
+            .hero-buttons a {
+                width: 100%;
+                text-align: center;
+            }
+
+            .mockup-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .score-area {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-box {
+                padding: 35px 20px;
+            }
+
+            .cta-box h2 {
+                font-size: 32px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header class="navbar">
+
+    <div class="container nav-inner">
+
+        <a href="#" class="logo">
+            Competen<span>zee</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="#products">Products</a>
+            <a href="#features">Features</a>
+            <a href="#assessments">Assessments</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#audience">For Colleges</a>
+        </nav>
+
+        <div class="nav-actions">
+
+            <!-- IMPORTANT: opens popup, does NOT change page -->
+            <button class="login-btn" onclick="openLogin()">
+                Login
+            </button>
+
+            <!-- IMPORTANT: opens popup, does NOT change page -->
+            <button class="primary-btn" onclick="openSignup()">
+                Get Started
+            </button>
+
+        </div>
+
+        <button class="mobile-menu">
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="container hero-grid">
+
+        <div>
+
+            <div class="hero-badge">
+                ✦ AI-Powered Career Readiness
+            </div>
+
+            <h1>
+                Build skills.<br>
+                Practice smarter.<br>
+                <span>Get career ready.</span>
+            </h1>
+
+            <p class="hero-text">
+                A complete career-readiness ecosystem helping students
+                prepare for placements, technical interviews,
+                communication assessments and aptitude tests.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="primary-btn"
+                        onclick="openSignup()">
+                    Get Started →
+                </button>
+
+                <a href="#products"
+                   class="secondary-btn">
+                    Explore Products
+                </a>
+
+            </div>
+
+            <p class="hero-note">
+                Free credits available on signup
+            </p>
+
+        </div>
+
+
+        <!-- DASHBOARD MOCKUP -->
+
+        <div class="dashboard-wrapper">
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-top">
+
+                    <div>
+                        <div class="dashboard-title">
+                            Your Career Dashboard
+                        </div>
+
+                        <div class="dashboard-small">
+                            Track your readiness
+                        </div>
+                    </div>
+
+                    <span>•••</span>
+
+                </div>
+
+
+                <div class="score-area">
+
+                    <div class="score-circle">
+
+                        <div class="score-number">
+                            <strong>78%</strong>
+                            <small>Ready</small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="progress-list">
+
+                        <div class="progress-item">
+
+                            <div class="progress-label">
+                                <span>Technical Skills</span>
+                                <strong>85%</strong>
+                            </div>
+
+                            <div class="progress-bar">
+                                <div class="progress-fill fill-85"></div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="progress-item">
+
+                            <div class="progress-label">
+                                <span>Communication</span>
+                                <strong>70%</strong>
+                            </div>
+
+                            <div class="progress-bar">
+                                <div class="progress-fill fill-70"></div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="progress-item">
+
+                            <div class="progress-label">
+                                <span>Aptitude</span>
+                                <strong>62%</strong>
+                            </div>
+
+                            <div class="progress-bar">
+                                <div class="progress-fill fill-62"></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mockup-cards">
+
+                    <div class="mock-card">
+                        <div class="mock-card-icon">🤖</div>
+                        <strong>AI Mock</strong>
+                        <span>Interview</span>
+                    </div>
+
+                    <div class="mock-card">
+                        <div class="mock-card-icon">💻</div>
+                        <strong>Coding</strong>
+                        <span>Practice</span>
+                    </div>
+
+                    <div class="mock-card">
+                        <div class="mock-card-icon">🎤</div>
+                        <strong>Speaking</strong>
+                        <span>Assessment</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     STATS
+========================= -->
+
+<section class="stats">
+
+    <div class="container stats-grid">
+
+        <div class="stat">
+            <strong>68,000+</strong>
+            <span>Practice MCQs</span>
+        </div>
+
+        <div class="stat">
+            <strong>10</strong>
+            <span>AI Career Tools</span>
+        </div>
+
+        <div class="stat">
+            <strong>6</strong>
+            <span>Coding Practice Modes</span>
+        </div>
+
+        <div class="stat">
+            <strong>150</strong>
+            <span>Aptitude Topics</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     WHY COMPETENZEE
+========================= -->
+
+<section class="section">
+
+    <div class="container why-grid">
+
+        <div>
+
+            <span class="section-label">
+                WHY COMPETENZEE
+            </span>
+
+            <h2 class="section-title">
+                Prepare for more than just an interview.
+            </h2>
+
+            <p class="section-subtitle">
+                Build technical skills, communication confidence
+                and assessment readiness through structured practice
+                and instant feedback.
+            </p>
+
+        </div>
+
+
+        <div class="why-list">
+
+            <div class="why-item">
+
+                <div class="why-icon">🎯</div>
+
+                <div>
+                    <h3>Personalized Preparation</h3>
+                    <p>
+                        Practice based on your skills,
+                        academic background and career goals.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="why-item">
+
+                <div class="why-icon">🤖</div>
+
+                <div>
+                    <h3>AI-Powered Practice</h3>
+                    <p>
+                        Practice interviews, communication,
+                        resume preparation and more.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="why-item">
+
+                <div class="why-icon">📊</div>
+
+                <div>
+                    <h3>Instant Feedback</h3>
+                    <p>
+                        Understand your performance through
+                        scores, analytics and targeted improvement.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="why-item">
+
+                <div class="why-icon">🧭</div>
+
+                <div>
+                    <h3>Structured Career Journey</h3>
+                    <p>
+                        Move from assessment to practice
+                        and improvement in one ecosystem.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PRODUCTS
+========================= -->
+
+<section class="section" id="products">
+
+    <div class="container">
+
+        <div class="products-header">
+
+            <span class="section-label">
+                OUR PRODUCTS
+            </span>
+
+            <h2 class="section-title">
+                Two solutions. One career journey.
+            </h2>
+
+            <p class="section-subtitle">
+                Prepare for technical placements and build
+                communication confidence through focused platforms.
+            </p>
+
+        </div>
+
+
+        <div class="products-grid">
+
+            <div class="product-card featured">
+
+                <div class="product-icon">
+                    🚀
+                </div>
+
+                <h3>
+                    PlaceReady.AI
+                </h3>
+
+                <p>
+                    Placement and technical interview readiness
+                    with AI-powered career tools, practice labs
+                    and assessments.
+                </p>
+
+                <div class="product-tags">
+                    <span class="tag">AI Mock Interview</span>
+                    <span class="tag">Resume AI</span>
+                    <span class="tag">Coding</span>
+                    <span class="tag">Group Discussion</span>
+                    <span class="tag">MCQs</span>
+                    <span class="tag">Business Cases</span>
+                </div>
+
+            </div>
+
+
+            <div class="product-card blue">
+
+                <div class="product-icon">
+                    🎤
+                </div>
+
+                <h3>
+                    Fluenzee
+                </h3>
+
+                <p>
+                    Spoken English, communication and aptitude
+                    assessment practice designed for career readiness.
+                </p>
+
+                <div class="product-tags">
+                    <span class="tag">SVAR</span>
+                    <span class="tag">SpeechX</span>
+                    <span class="tag">IELTS / TOEFL</span>
+                    <span class="tag">Company Rounds</span>
+                    <span class="tag">Aptitude</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FEATURES
+========================= -->
+
+<section class="section" id="features">
+
+    <div class="container">
+
+        <span class="section-label">
+            PLACEREADY.AI
+        </span>
+
+        <h2 class="section-title">
+            Tools to prepare with confidence.
+        </h2>
+
+        <p class="section-subtitle">
+            Practice different stages of placement preparation
+            from career discovery to interviews.
+        </p>
+
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>Career Audit</h3>
+                <p>Analyze skills and identify targeted job recommendations.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>AI Mock Interview</h3>
+                <p>Practice tailored interview sessions and receive feedback.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🗣️</div>
+                <h3>Introduce Yourself Coach</h3>
+                <p>Improve your self-introduction and delivery.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📄</div>
+                <h3>Resume Score</h3>
+                <p>Understand resume quality and ATS readiness.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h3>Resume AI</h3>
+                <p>Prepare resumes aligned with job requirements.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <h3>Group Discussion</h3>
+                <p>Practice discussion rounds with evaluated AI participants.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🧭</div>
+                <h3>Skill Roadmap</h3>
+                <p>Build a personalized learning roadmap.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📦</div>
+                <h3>Application Pack</h3>
+                <p>Tailor application materials for specific roles.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">💼</div>
+                <h3>Business Case Simulator</h3>
+                <p>Practice interactive business cases across different domains.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     TECHNICAL PRACTICE
+========================= -->
+
+<section class="section technical">
+
+    <div class="container">
+
+        <span class="section-label">
+            TECHNICAL MASTERY
+        </span>
+
+        <h2 class="section-title">
+            Practice. Debug. Improve.
+        </h2>
+
+        <p class="section-subtitle">
+            Build technical confidence through multiple
+            structured practice modes.
+        </p>
+
+
+        <div class="technical-grid">
+
+            <div class="technical-card">
+                <span>💻</span>
+                <h3>Coding Practice</h3>
+                <p>Strengthen your programming problem-solving skills.</p>
+            </div>
+
+            <div class="technical-card">
+                <span>🐞</span>
+                <h3>Debugging</h3>
+                <p>Find and fix issues in code.</p>
+            </div>
+
+            <div class="technical-card">
+                <span>🧩</span>
+                <h3>Pseudocode</h3>
+                <p>Improve logical thinking before coding.</p>
+            </div>
+
+            <div class="technical-card">
+                <span>🗄️</span>
+                <h3>SQL Challenges</h3>
+                <p>Practice database and query-based problems.</p>
+            </div>
+
+            <div class="technical-card">
+                <span>⚡</span>
+                <h3>Optimization</h3>
+                <p>Improve code efficiency and problem-solving.</p>
+            </div>
+
+            <div class="technical-card">
+                <span>🔎</span>
+                <h3>Code Review</h3>
+                <p>Learn to evaluate and improve solutions.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ASSESSMENTS
+========================= -->
+
+<section class="section" id="assessments">
+
+    <div class="container">
+
+        <span class="section-label">
+            ASSESSMENTS
+        </span>
+
+        <h2 class="section-title">
+            Built for different academic journeys.
+        </h2>
+
+        <p class="section-subtitle">
+            Practice according to your academic stream
+            and career requirements.
+        </p>
+
+
+        <div class="assessment-grid">
+
+            <div class="assessment-card">
+                <span class="number">01</span>
+                <h3>B.Tech</h3>
+                <p>
+                    Engineering-focused placement preparation
+                    across multiple branches.
+                </p>
+            </div>
+
+            <div class="assessment-card">
+                <span class="number">02</span>
+                <h3>Degree</h3>
+                <p>
+                    Career readiness for degree programs
+                    including BCA, B.Sc, B.Com and BBA.
+                </p>
+            </div>
+
+            <div class="assessment-card">
+                <span class="number">03</span>
+                <h3>MBA</h3>
+                <p>
+                    Preparation across MBA specializations
+                    including Marketing, Finance, HR and more.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FLUENZEE
+========================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="fluenzee-box">
+
+            <div class="voice-illustration">
+
+                <div class="sound one"></div>
+                <div class="sound two"></div>
+                <div class="sound three"></div>
+
+                <div class="mic">
+                    🎤
+                </div>
+
+            </div>
+
+
+            <div class="fluenzee-content">
+
+                <span class="section-label">
+                    FLUENZEE
+                </span>
+
+                <h2>
+                    Speak. Practice. Improve.
+                </h2>
+
+                <p>
+                    Build spoken English fluency, communication
+                    confidence and aptitude readiness through
+                    structured assessments.
+                </p>
+
+
+                <div class="fluency-cards">
+
+                    <div class="fluency-card">
+                        <strong>SVAR Paper</strong>
+                        <span>Audio-based assessment</span>
+                    </div>
+
+                    <div class="fluency-card">
+                        <strong>SpeechX</strong>
+                        <span>Fluency & pronunciation</span>
+                    </div>
+
+                    <div class="fluency-card">
+                        <strong>Company Rounds</strong>
+                        <span>Company-style communication</span>
+                    </div>
+
+                    <div class="fluency-card">
+                        <strong>Aptitude</strong>
+                        <span>150 topics</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     HOW IT WORKS
+========================= -->
+
+<section class="section" id="how-it-works">
+
+    <div class="container">
+
+        <div class="how-header">
+
+            <span class="section-label">
+                HOW IT WORKS
+            </span>
+
+            <h2 class="section-title">
+                Your journey from sign up to improvement.
+            </h2>
+
+            <p class="section-subtitle">
+                A simple learning journey designed to help
+                you practice and understand your progress.
+            </p>
+
+        </div>
+
+
+        <div class="steps">
+
+            <div class="step">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h3>
+                    Sign Up
+                </h3>
+
+                <p>
+                    Create your account and complete
+                    your academic onboarding.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h3>
+                    Dashboard
+                </h3>
+
+                <p>
+                    Track credits, roadmap,
+                    scores and recommendations.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h3>
+                    Practice
+                </h3>
+
+                <p>
+                    Take AI mocks, coding labs,
+                    speaking tests and assessments.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    04
+                </div>
+
+                <h3>
+                    Score & Feedback
+                </h3>
+
+                <p>
+                    Review your performance and
+                    identify areas for improvement.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     AUDIENCE
+========================= -->
+
+<section class="section" id="audience">
+
+    <div class="container">
+
+        <span class="section-label">
+            BUILT FOR
+        </span>
+
+        <h2 class="section-title">
+            One ecosystem. Different needs.
+        </h2>
+
+        <p class="section-subtitle">
+            Support students, institutions and partners
+            through a connected career-readiness ecosystem.
+        </p>
+
+
+        <div class="audience-grid">
+
+            <div class="audience-card">
+
+                <div class="audience-card-icon">
+                    🎓
+                </div>
+
+                <h3>
+                    Students
+                </h3>
+
+                <p>
+                    Practice skills and track your career readiness.
+                </p>
+
+                <ul>
+                    <li>AI career tools</li>
+                    <li>Technical practice</li>
+                    <li>Communication practice</li>
+                    <li>Scores & feedback</li>
+                </ul>
+
+            </div>
+
+
+            <div class="audience-card">
+
+                <div class="audience-card-icon">
+                    🏫
+                </div>
+
+                <h3>
+                    Colleges
+                </h3>
+
+                <p>
+                    Monitor student performance and placement preparation.
+                </p>
+
+                <ul>
+                    <li>Student analytics</li>
+                    <li>Shared placement drives</li>
+                    <li>College reports</li>
+                    <li>Performance tracking</li>
+                </ul>
+
+            </div>
+
+
+            <div class="audience-card">
+
+                <div class="audience-card-icon">
+                    🤝
+                </div>
+
+                <h3>
+                    Partners
+                </h3>
+
+                <p>
+                    Manage partner-related commercial activities.
+                </p>
+
+                <ul>
+                    <li>Earnings management</li>
+                    <li>Coupon management</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PLANS
+========================= -->
+
+<section class="section plans">
+
+    <div class="container">
+
+        <div class="plans-header">
+
+            <span class="section-label">
+                ACCESS
+            </span>
+
+            <h2 class="section-title">
+                Start practicing your way.
+            </h2>
+
+            <p class="section-subtitle">
+                Begin with available credits and choose
+                the access option that fits your preparation.
+            </p>
+
+        </div>
+
+
+        <div class="plans-grid">
+
+            <div class="plan-card">
+
+                <h3>
+                    Free Credits
+                </h3>
+
+                <p>
+                    Start exploring the platform with
+                    signup credits.
+                </p>
+
+                <ul>
+                    <li>Signup credits</li>
+                    <li>Practice selected tools</li>
+                    <li>Explore assessments</li>
+                </ul>
+
+                <button class="secondary-btn full-btn"
+                        onclick="openSignup()">
+                    Get Started
+                </button>
+
+            </div>
+
+
+            <div class="plan-card featured-plan">
+
+                <h3>
+                    Choose Your Access
+                </h3>
+
+                <p>
+                    Flexible access options for
+                    different preparation needs.
+                </p>
+
+                <ul>
+                    <li>Basic access</li>
+                    <li>Standard access</li>
+                    <li>Premium access</li>
+                    <li>Pay-per-tool options</li>
+                </ul>
+
+                <button class="primary-btn full-btn"
+                        onclick="openSignup()">
+                    Explore Access
+                </button>
+
+            </div>
+
+
+            <div class="plan-card">
+
+                <h3>
+                    Application Packs
+                </h3>
+
+                <p>
+                    Prepare your application materials
+                    for targeted roles.
+                </p>
+
+                <ul>
+                    <li>Role-focused preparation</li>
+                    <li>Application workflow</li>
+                    <li>Available coupons</li>
+                </ul>
+
+                <button class="secondary-btn full-btn"
+                        onclick="openSignup()">
+                    Start Now
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <div class="cta-box">
+
+            <h2>
+                Ready to build your career readiness?
+            </h2>
+
+            <p>
+                Start practicing technical skills,
+                communication and placement assessments
+                in one career-readiness ecosystem.
+            </p>
+
+            <button class="primary-btn"
+                    onclick="openSignup()">
+                Create Your Account →
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+
+                <div class="logo">
+                    Competen<span>zee</span>
+                </div>
+
+                <p>
+                    A career-readiness ecosystem helping
+                    students prepare smarter for placements
+                    and assessments.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>Products</h4>
+
+                <ul>
+                    <li>
+                        <a href="#products">
+                            PlaceReady.AI
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#products">
+                            Fluenzee
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h4>Platform</h4>
+
+                <ul>
+                    <li>
+                        <a href="#features">
+                            Features
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#assessments">
+                            Assessments
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#how-it-works">
+                            How It Works
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h4>Account</h4>
+
+                <ul>
+                    <li>
+                        <a href="javascript:void(0)"
+                           onclick="openLogin()">
+                            Login
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:void(0)"
+                           onclick="openSignup()">
+                            Sign Up
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+            © 2026 Competenzee. All rights reserved.
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     LOGIN / SIGNUP MODAL
+     Everything stays inside index.html
+===================================================== -->
+
+<div class="modal" id="authModal">
+
+    <div class="auth-box">
+
+        <!-- CLOSE -->
+
+        <button class="close-modal"
+                onclick="closeAuth()">
+            ×
+        </button>
+
+
+        <!-- =========================
+             LOGIN INFO
+        ========================= -->
+
+        <div class="auth-info"
+             id="loginInfo">
+
+            <div class="logo">
+                Competen<span>zee</span>
+            </div>
+
+            <h2>
+                Welcome back to your career journey.
+            </h2>
+
+            <p>
+                Continue practicing, tracking your progress
+                and building your career readiness.
+            </p>
+
+            <ul class="auth-benefits">
+
+                <li>
+                    AI-powered career tools
+                </li>
+
+                <li>
+                    Technical practice
+                </li>
+
+                <li>
+                    Communication assessments
+                </li>
+
+                <li>
+                    Scores and feedback
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- =========================
+             SIGNUP INFO
+        ========================= -->
+
+        <div class="auth-info signup-info"
+             id="signupInfo"
+             style="display:none;">
+
+            <div class="logo">
+                Competen<span>zee</span>
+            </div>
+
+            <h2>
+                Start your career-readiness journey.
+            </h2>
+
+            <p>
+                Create your account and start practicing
+                smarter with Competenzee.
+            </p>
+
+            <ul class="auth-benefits">
+
+                <li>
+                    AI career preparation
+                </li>
+
+                <li>
+                    Coding and technical practice
+                </li>
+
+                <li>
+                    Spoken English and aptitude
+                </li>
+
+                <li>
+                    Performance tracking
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- =========================
+             LOGIN FORM
+        ========================= -->
+
+        <div class="auth-form"
+             id="loginForm">
+
+            <div class="auth-icon">
+                🔐
+            </div>
+
+            <h2>
+                Welcome Back
+            </h2>
+
+            <p class="auth-subtitle">
+                Login to continue your preparation.
+            </p>
+
+
+            <form onsubmit="demoSubmit(event, 'login')">
+
+                <div class="form-group">
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-options">
+
+                    <label class="remember">
+
+                        <input type="checkbox">
+
+                        Remember me
+
+                    </label>
+
+                    <a href="javascript:void(0)">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+
+                <button class="primary-btn full-btn"
+                        type="submit">
+
+                    Login
+
+                </button>
+
+            </form>
+
+
+            <div class="auth-switch">
+
+                Don't have an account?
+
+                <button onclick="showSignup()">
+                    Create Account
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             SIGNUP FORM
+        ========================= -->
+
+        <div class="auth-form"
+             id="signupForm"
+             style="display:none;">
+
+            <div class="auth-icon">
+                ✨
+            </div>
+
+            <h2>
+                Create Your Account
+            </h2>
+
+            <p class="auth-subtitle">
+                Start your career-readiness journey today.
+            </p>
+
+
+            <form onsubmit="demoSubmit(event, 'signup')">
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>
+                            First Name
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="First name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Last Name
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="Last name"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Education
+                    </label>
+
+                    <select required>
+
+                        <option value="">
+                            Select your education
+                        </option>
+
+                        <option>
+                            B.Tech
+                        </option>
+
+                        <option>
+                            Degree
+                        </option>
+
+                        <option>
+                            MBA
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Create Password
+                    </label>
+
+                    <input
+                        type="password"
+                        placeholder="Create a password"
+                        required
+                    >
+
+                </div>
+
+
+                <label class="terms">
+
+                    <input
+                        type="checkbox"
+                        required
+                    >
+
+                    <span>
+                        I agree to the Terms & Conditions
+                        and Privacy Policy.
+                    </span>
+
+                </label>
+
+
+                <button class="primary-btn full-btn"
+                        type="submit">
+
+                    Create Account
+
+                </button>
+
+            </form>
+
+
+            <div class="auth-switch">
+
+                Already have an account?
+
+                <button onclick="showLogin()">
+                    Login
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+    const authModal = document.getElementById("authModal");
+
+    const loginForm = document.getElementById("loginForm");
+
+    const signupForm = document.getElementById("signupForm");
+
+    const loginInfo = document.getElementById("loginInfo");
+
+    const signupInfo = document.getElementById("signupInfo");
+
+
+    /* =========================
+       OPEN LOGIN
+    ========================= */
+
+    function openLogin() {
+
+        authModal.classList.add("active");
+
+        loginForm.style.display = "block";
+        loginInfo.style.display = "flex";
+
+        signupForm.style.display = "none";
+        signupInfo.style.display = "none";
+
+        document.body.style.overflow = "hidden";
+    }
+
+
+    /* =========================
+       OPEN SIGNUP
+    ========================= */
+
+    function openSignup() {
+
+        authModal.classList.add("active");
+
+        signupForm.style.display = "block";
+        signupInfo.style.display = "flex";
+
+        loginForm.style.display = "none";
+        loginInfo.style.display = "none";
+
+        document.body.style.overflow = "hidden";
+    }
+
+
+    /* =========================
+       SWITCH TO LOGIN
+    ========================= */
+
+    function showLogin() {
+
+        loginForm.style.display = "block";
+        loginInfo.style.display = "flex";
+
+        signupForm.style.display = "none";
+        signupInfo.style.display = "none";
+    }
+
+
+    /* =========================
+       SWITCH TO SIGNUP
+    ========================= */
+
+    function showSignup() {
+
+        signupForm.style.display = "block";
+        signupInfo.style.display = "flex";
+
+        loginForm.style.display = "none";
+        loginInfo.style.display = "none";
+    }
+
+
+    /* =========================
+       CLOSE MODAL
+    ========================= */
+
+    function closeAuth() {
+
+        authModal.classList.remove("active");
+
+        document.body.style.overflow = "auto";
+    }
+
+
+    /* =========================
+       CLOSE WHEN CLICK OUTSIDE
+    ========================= */
+
+    authModal.addEventListener("click", function(event) {
+
+        if (event.target === authModal) {
+            closeAuth();
+        }
+
+    });
+
+
+    /* =========================
+       ESC KEY
+    ========================= */
+
+    document.addEventListener("keydown", function(event) {
+
+        if (event.key === "Escape") {
+            closeAuth();
+        }
+
+    });
+
+
+    /* =========================
+       UI DEMO SUBMIT
+    ========================= */
+
+    function demoSubmit(event, type) {
+
+        event.preventDefault();
+
+        if (type === "login") {
+
+            alert(
+                "Login UI is ready. Backend authentication will be connected later."
+            );
+
+        } else {
+
+            alert(
+                "Signup UI is ready. Backend registration will be connected later."
+            );
+
+        }
+
+    }
+
+</script>
+
+
+</body>
+</html>
